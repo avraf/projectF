@@ -1,0 +1,31 @@
+section.title{
+	text-align: center;
+}
+
+div.ng-scope{
+	padding: 0% 5%;
+}
+
+.overflowable {
+  height: 240px;
+  overflow-y: auto;
+  border: 1px solid #000;
+}
+
+.overflowable p {
+  margin: 0;
+}
+
+.message-col {
+  float: left;
+  width: 90%;
+}
+
+.user-col {
+  float: left;
+  width: 10%;
+}
+
+.clr {
+  clear: both;
+}

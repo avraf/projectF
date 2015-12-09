@@ -1,0 +1,12 @@
+{
+  "name": "node-skeleton",
+  "version": "0.2.0",
+  "description": "Chat with smart bot",
+  "main": "app.js",
+  "author": "Avraham Sayegh",
+  "dependencies": {
+    "express": "~4.6.1",
+    "jade": "^1.11.0",
+    "socket.io": "^1.3.7"
+  }
+}
