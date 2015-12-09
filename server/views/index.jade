@@ -5,29 +5,43 @@ html(ng-app="smartChat")
     base(href='/')
     title Smart Chat
     link(rel='stylesheet', href='/css/app.css')
+    link(rel='stylesheet', href='/css/angular-material.min.css')
   body
     section.title
       h2 SmartChat Ask away
       h4 If your asking a question use q: | Q:
       h4 If your answering use a: | A: 
     div(ng-controller='AppCtrl')
-      .user-col
-        h3 Users
-        .overflowable
-          p(ng-repeat='user in users') {{user}}
+      md-content(flex layout-padding)
+        div(layout="row")
+          div(flex="33")           
+            .overflowable
+              h3 Users
+              p(ng-repeat='user in users') {{user}}
 
-      .message-col
-        h3 Messages
-        .overflowable
-          p(ng-repeat='message in messages') {{message.user}}: {{message.text}}
-
-      .clr
+          div(flex="66")
+            .overflowable
+              md-list
+                md-subheader.md-no-sticky Messages
+                md-list-item.md-2-line(ng-repeat='message in messages')
+                  span(flex="15")
+                    img.md-avatar(ng-if="checkPreviousEntry($first, $index)" src="{{message.user == 'SmartBot' ? 'img/smartbot.png' : 'img/guest.png'}}")
+                  .md-list-item-text
+                    h3(ng-if="checkPreviousEntry($first, $index)") {{message.user}}
+                    p {{message.text}}
+        
         form(ng-submit='sendMessage()')
-          | Message: 
-          input(size='60', ng-model='message')
-          input(type='submit', value='Send')      
+          div(layout="row")
+            md-input-container(flex="grow")
+              label Message
+              input(size='60', ng-model='message')
+          div(layout="row")
+            md-button(class="md-raised md-primary" flex="grow") Send
 
     script(src='js/lib/angular.min.js')
+    script(src='js/lib/angular-animate.min.js')
+    script(src='js/lib/angular-aria.min.js')
+    script(src='js/lib/angular-material.min.js')
     script(src='/socket.io/socket.io.js')
     script(src='js/app.js')
     script(src='js/services.js')

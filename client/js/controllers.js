@@ -65,6 +65,15 @@ function AppCtrl($scope, socket) {
       user: $scope.name,
       text: text
     });
-  }  
+  }
+
+	$scope.checkPreviousEntry = function(first, index){
+		if(first){
+			return true;
+		}
+		return ($scope.messages[index-1].user != $scope.messages[index].user);
+	}
 
 }
+
+app.controller('AppCtrl', AppCtrl);
