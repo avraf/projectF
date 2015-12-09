@@ -6,8 +6,8 @@
 
 ## Installation
 
-1. `git clone git@github.com:forter/node-skeleton.git`
-2. `cd node-skeleton`
+1. `git clone https://github.com/avraf/projectF.git`
+2. `cd projectF`
 3. `npm install`
 3. `node app.js`
 4. Go to `http://localhost:3000`
